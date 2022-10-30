@@ -1,7 +1,25 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import PostList from './components/PostList'
 import './styles/app.scss'
+import { IPost } from './types/types'
 
 function App() {
-  return <div className="App"></div>
+  const [posts, setPosts] = useState<IPost[]>([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const { data } = await axios.get<IPost[]>('https://jsonplaceholder.typicode.com/posts')
+      setPosts(data)
+    }
+    fetchPosts()
+  }, [])
+
+  return (
+    <div className="App">
+      <PostList />
+    </div>
+  )
 }
 
 export default App
