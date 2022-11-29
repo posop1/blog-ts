@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import NavBar from './components/Navbar'
 import PostList from './components/PostList'
 import './styles/app.scss'
 import { IPost } from './types/types'
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <PostList posts={posts} />
     </div>
   )

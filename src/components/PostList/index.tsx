@@ -10,14 +10,16 @@ interface PostListProps {
 const PostList: FC<PostListProps> = ({ posts }) => {
   return (
     <div className={styles.PostList}>
-      {posts.map((post) => (
-        <PostItem
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          body={post.body}
-        />
-      ))}
+      <div className="container">
+        {posts.map((post) => (
+          <PostItem
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+          />
+        ))}
+      </div>
     </div>
   )
 }
